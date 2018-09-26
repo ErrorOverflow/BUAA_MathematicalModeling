@@ -14,7 +14,6 @@ int main() {
 
     cin >> CustomerNum >> ArriveTime >> ServeTime >> MaxLength;
 
-    Queue queue(CustomerNum,ArriveTime,MaxLength);
-
+    Queue queue(CustomerNum, ArriveTime, MaxLength);
     return 0;
 }

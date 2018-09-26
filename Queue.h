@@ -16,9 +16,9 @@ class Queue {
 private:
     Customer *Head;
     double AverageTime;
-    int ServeMark;
     int CustomerNum;
     int MaxLength;
+    int Length;
 
 public:
     Queue(int num,double AverageTime,int MaxLength);

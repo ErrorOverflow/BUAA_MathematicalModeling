@@ -3,4 +3,4 @@ project(BUAA_MathematicalModeling)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(BUAA_MathematicalModeling main.cpp main.cpp Queue.cpp Queue.h)
+add_executable(BUAA_MathematicalModeling main.cpp main.cpp Queue.cpp Queue.h Server.cpp Server.h)
