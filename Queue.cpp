@@ -16,8 +16,11 @@ Queue::Queue(int num, double time, int maxlength) {
     Length = 0;
 }
 
-void Queue::QueueGenerate() {
+int Queue::QueueGenerate() {
     Customer *p = Head;
+    if (CustomerNum == 0) {
+        return -1;
+    }
     while (Length < MaxLength && CustomerNum > 0) {
         if (p == NULL) {
             p = (Customer *) malloc(sizeof(Customer));
@@ -38,9 +41,10 @@ void Queue::QueueGenerate() {
             p = p->next;
         }
     }
+    return 0;
 }
 
-void Queue::serve() {
+Customer Queue::serve() {
     if (Head == NULL) {
         std::cout << "queue is empty" << std::endl;
     } else {

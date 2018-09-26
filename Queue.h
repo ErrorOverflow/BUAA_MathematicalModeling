@@ -19,9 +19,9 @@ private:
 public:
     Queue(int num,double AverageTime,int MaxLength);
 
-    void QueueGenerate();
+    int QueueGenerate();
 
-    void serve();
+    Customer serve();
 };
 
 

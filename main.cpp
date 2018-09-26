@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "Queue.h"
+#include "Server.h"
 
 using namespace std;
 
@@ -15,7 +16,11 @@ int main() {
     cin >> CustomerNum >> ArriveTime >> ServeTime >> MaxLength;
 
     Queue queue(CustomerNum, ArriveTime, MaxLength);
+    Server server(ServeTime);
 
+    while (queue.QueueGenerate()) {
+        cout << server.serve(queue.serve()) << endl;
+    }
     cout << "end" << endl;
     return 0;
 }
