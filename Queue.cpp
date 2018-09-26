@@ -6,13 +6,13 @@
 #include "cstdlib"
 #include <malloc.h>
 #include <iostream>
-#include <type.h>
+#include "type.h"
 
-Queue::Queue(int num, double time, int maxlength) {
+Queue::Queue(int num, double time, int length) {
     Head = NULL;
     CustomerNum = num;
     AverageTime = time;
-    MaxLength = maxlength;
+    MaxLength = length;
     Length = 0;
 }
 
