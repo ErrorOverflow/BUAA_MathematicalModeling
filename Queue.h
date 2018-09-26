@@ -5,11 +5,7 @@
 #ifndef BUAA_MATHEMATICALMODELING_QUEUE_H
 #define BUAA_MATHEMATICALMODELING_QUEUE_H
 
-struct Customer{
-    int tag;
-    double time;
-    Customer* next;
-};
+#include "type.h"
 
 class Queue {
 

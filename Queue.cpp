@@ -6,6 +6,7 @@
 #include "cstdlib"
 #include <malloc.h>
 #include <iostream>
+#include <type.h>
 
 Queue::Queue(int num, double time, int maxlength) {
     Head = NULL;

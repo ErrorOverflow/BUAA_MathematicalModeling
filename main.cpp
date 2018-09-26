@@ -15,5 +15,7 @@ int main() {
     cin >> CustomerNum >> ArriveTime >> ServeTime >> MaxLength;
 
     Queue queue(CustomerNum, ArriveTime, MaxLength);
+
+    cout << "end" << endl;
     return 0;
 }

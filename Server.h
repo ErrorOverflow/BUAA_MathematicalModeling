@@ -6,11 +6,14 @@
 #define BUAA_MATHEMATICALMODELING_SERVER_H
 
 
+#include "type.h"
+
 class Server {
 private:
     double ServeTime;
 public:
     Server(double time);
+    double serve(Customer tag);
 };
 
 
