@@ -21,6 +21,6 @@ int main() {
     while (queue.QueueGenerate()) {
         cout << server.serve(queue.serve()) << endl;
     }
-    cout << "end" << endl;
+    cout << "END" << endl;
     return 0;
 }

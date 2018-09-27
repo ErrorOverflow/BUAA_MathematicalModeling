@@ -18,19 +18,21 @@ Queue::Queue(int num, double time, int length) {
 
 int Queue::QueueGenerate() {
     Customer *p = Head;
-    if (CustomerNum == 0) {
-        return -1;
+    Customer *q = NULL;
+    if (CustomerNum == 0 && Head==NULL) {
+        return 0;
     }
     while (Length < MaxLength && CustomerNum > 0) {
-        if (p == NULL) {
+        if (Head == NULL) {
             p = (Customer *) malloc(sizeof(Customer));
             p->next = NULL;
             p->tag = 0;
             p->time = AverageTime * 2 * rand() / double(RAND_MAX);
+            Head = p;
             Length++;
             CustomerNum--;
         } else if (p->next == NULL) {
-            Customer *q = (Customer *) malloc(sizeof(Customer));
+            q = (Customer *) malloc(sizeof(Customer));
             q->next = NULL;
             q->tag = ++Length;
             q->time = AverageTime * 2 * rand() / double(RAND_MAX) + p->time;
@@ -41,15 +43,19 @@ int Queue::QueueGenerate() {
             p = p->next;
         }
     }
-    return 0;
+    return 1;
 }
 
 Customer Queue::serve() {
     if (Head == NULL) {
         std::cout << "queue is empty" << std::endl;
+        Customer *p=NULL;
+        return *p;
     } else {
-        std::cout << "#" << Head->tag << "customer is starting being served" << std::endl;
+        std::cout << "#" << Head->tag << " customer is starting being served" << std::endl;
+        Customer *p=Head;
         Head = Head->next;
         Length--;
+        return *p;
     }
 }
