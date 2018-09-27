@@ -26,6 +26,7 @@ int main() {
         if (t >= clock.getTime()) {
             clock.setTime(server.serve(t));
         } else {
+            cout << "(waiting) " ;
             clock.setTime(server.serve(clock.getTime()));
         }
         cout << clock.getTime() << endl;
