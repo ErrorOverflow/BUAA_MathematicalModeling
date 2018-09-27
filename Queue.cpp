@@ -19,7 +19,7 @@ Queue::Queue(int num, double time, int length) {
 int Queue::QueueGenerate() {
     Customer *p = Head;
     Customer *q = NULL;
-    if (CustomerNum == 0 && Head==NULL) {
+    if (CustomerNum == 0 && Head == NULL) {
         return 0;
     }
     while (Length < MaxLength && CustomerNum > 0) {
@@ -46,16 +46,15 @@ int Queue::QueueGenerate() {
     return 1;
 }
 
-Customer Queue::serve() {
+double Queue::serve() {
     if (Head == NULL) {
         std::cout << "queue is empty" << std::endl;
-        Customer *p=NULL;
-        return *p;
+        return 0;
     } else {
         std::cout << "#" << Head->tag << " customer is starting being served" << std::endl;
-        Customer *p=Head;
+        double t = Head->time;
         Head = Head->next;
         Length--;
-        return *p;
+        return t;
     }
 }

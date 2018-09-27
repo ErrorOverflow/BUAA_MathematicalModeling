@@ -21,7 +21,7 @@ public:
 
     int QueueGenerate();
 
-    Customer serve();
+    double serve();
 };
 
 

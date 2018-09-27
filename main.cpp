@@ -22,13 +22,13 @@ int main() {
     Clock clock;
 
     while (queue.QueueGenerate()) {
-        Customer *p = NULL;
-        *p = queue.serve();
-        if (p->time >= clock.getTime()) {
-            cout << server.serve(*p) << endl;
+        double t = queue.serve();
+        if (t >= clock.getTime()) {
+            clock.setTime(server.serve(t));
         } else {
-
+            clock.setTime(server.serve(clock.getTime()));
         }
+        cout << clock.getTime() << endl;
     }
     cout << "END" << endl;
     return 0;
