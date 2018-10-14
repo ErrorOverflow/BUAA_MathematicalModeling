@@ -13,7 +13,7 @@ private:
     double ServeTime;
 public:
     Server(double time);
-    double serve(Customer tag);
+    //double serve(Customer tag);
     double serve(double t);
 };
 

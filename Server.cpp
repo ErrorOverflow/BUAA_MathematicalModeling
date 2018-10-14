@@ -10,9 +10,9 @@ Server::Server(double time) {
     ServeTime = time;
 }
 
-double Server::serve(Customer tag) {
-    return tag.time+ServeTime * 2 * rand() / double(RAND_MAX);
-}
+//double Server::serve(Customer tag) {
+//    return tag.time+ServeTime * 2 * rand() / double(RAND_MAX);
+//}
 
 double Server::serve(double t) {
     return t+ServeTime * 2 * rand() / double(RAND_MAX);
