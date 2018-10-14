@@ -24,7 +24,7 @@ int Queue::QueueGenerate() {
     }
     while (Length < MaxLength && CustomerNum > 0) {
         if (Head == NULL) {
-            p = (Customer *) malloc(sizeof(Customer));
+            p = (Customer *) malloc(sizeof(Customer)+1);
             p->next = NULL;
             p->tag = 0;
             p->time = AverageTime * 2 * rand() / double(RAND_MAX);
@@ -51,7 +51,7 @@ double Queue::serve() {
         std::cout << "queue is empty" << std::endl;
         return 0;
     } else {
-        std::cout << "#" << Head->tag << " customer is arriving at " << Head->time << ", starting being served at ";
+        std::cout << "#" << Head->tag << " customer is arriving at " << Head->time << ", finished at ";
         double t = Head->time;
         Head = Head->next;
         Length--;

@@ -24,13 +24,15 @@ int main() {
     while (queue.QueueGenerate()) {
         double t = queue.serve();
         if (t >= clock.getTime()) {
+            //freetime += (t - clock.getTime());
             clock.setTime(server.serve(t));
         } else {
-            cout << "(waiting) " ;
+            cout << "(waiting) ";
             clock.setTime(server.serve(clock.getTime()));
         }
         cout << clock.getTime() << endl;
     }
+    //cout << "free rate: " << freetime / clock.getTime() << endl;
     cout << "END" << endl;
     return 0;
 }
