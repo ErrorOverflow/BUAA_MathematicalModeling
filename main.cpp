@@ -10,6 +10,8 @@
 using namespace std;
 
 int main() {
+    static double freetime=0;
+    static double waitime=0;
     int CustomerNum;
     double ArriveTime;
     double ServeTime;
@@ -24,15 +26,17 @@ int main() {
     while (queue.QueueGenerate()) {
         double t = queue.serve();
         if (t >= clock.getTime()) {
-            //freetime += (t - clock.getTime());
+            freetime += (t - clock.getTime());
             clock.setTime(server.serve(t));
         } else {
+            waitime+=(clock.getTime()-t);
             cout << "(waiting) ";
             clock.setTime(server.serve(clock.getTime()));
         }
         cout << clock.getTime() << endl;
     }
-    //cout << "free rate: " << freetime / clock.getTime() << endl;
+    cout << "free rate: " << freetime / clock.getTime() << endl;
+    cout << "total wait time: " << waitime << endl;
     cout << "END" << endl;
     return 0;
 }

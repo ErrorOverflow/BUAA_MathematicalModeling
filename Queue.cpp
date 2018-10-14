@@ -9,7 +9,7 @@
 #include "type.h"
 
 Queue::Queue(int num, double time, int length) {
-    Head = NULL;
+    Head = (Customer *) malloc(sizeof(Customer)+1);
     CustomerNum = num;
     AverageTime = time;
     MaxLength = length;
@@ -24,7 +24,6 @@ int Queue::QueueGenerate() {
     }
     while (Length < MaxLength && CustomerNum > 0) {
         if (Head == NULL) {
-            p = (Customer *) malloc(sizeof(Customer)+1);
             p->next = NULL;
             p->tag = 0;
             p->time = AverageTime * 2 * rand() / double(RAND_MAX);
